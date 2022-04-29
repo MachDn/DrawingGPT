@@ -25,7 +25,7 @@ From the terminal in Visual Studio Code (or from the command line - as long as y
 
 ```git pull origin main```
 
-## Go inside the root project folder, open cmd and type the following commands to install Django Framework and run the webserver:
+## Go inside the root project folder, open cmd and type the following commands to install Flask Framework and run the webserver:
 ```pip install -r requirements.txt```
 #
 ```python app.py```
