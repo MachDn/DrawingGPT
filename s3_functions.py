@@ -17,8 +17,8 @@ def upload_file(file_name, bucket):
 # Function to generate public URL from S3 to show images on the pages 
 def show_image(bucket):
     session = boto3.Session(region_name='eu-west-3',
-		                aws_access_key_id=os.environ['AWS_ACCESS_KEY'],
-		                aws_secret_access_key=os.environ['AWS_SECRET_KEY'])
+		                aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+		                aws_secret_access_key=os.environ['AWS_ACCESS_KEY_ID'])
     s3_client = session.client('s3')
     public_urls = []
     try:
