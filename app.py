@@ -7,6 +7,7 @@ from werkzeug.utils import secure_filename
 import boto3
 import os
 from s3_functions import upload_file, show_image
+from flask_cors import CORS
 
 
 #  DB connectivity configuration
