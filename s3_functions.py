@@ -8,8 +8,8 @@ from botocore.exceptions import ClientError
 def upload_file(file_name, bucket):
     object_name = file_name
     session = boto3.Session(region_name='eu-west-3',
-		                aws_access_key_id=os.environ['AWS_ACCESS_KEY'],
-		                aws_secret_access_key=os.environ['AWS_SECRET_KEY'])
+		                aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+		                aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
     s3_client = session.client('s3')
     response = s3_client.upload_file(file_name, bucket, object_name)
     return response
