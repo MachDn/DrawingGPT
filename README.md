@@ -1,5 +1,5 @@
 "# x21154589-cpp-tgifportal" 
-```This is a Web App developed in Python and Django with feature to upload image on S3.```
+```This is a Web App developed in Python and Flask with feature to upload image on S3.```
 ```TGIF(Thank God Its Friday) Portal is a place where Employees can look for upcoming TeamBuilding Events in their Team and track the``` ```contribution made by them to Fund the Event.```
 ```The main moto is self-fund the Team Building Activites.```
 
