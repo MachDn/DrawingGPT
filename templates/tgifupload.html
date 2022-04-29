@@ -1,0 +1,20 @@
+<!-- This is a Page to Upload TGIF Event Image Details -->
+{% extends 'base.html' %}
+{% block nameofemployee %} Home{% endblock nameofemployee %} 
+{% block body %}
+
+<div class="content">
+    <h1>Here are Event Details for Upcoming Friday🎉🎁🤳</h1>
+    <div>
+      <h3>Upload next events details here:</h3>
+      <form method="POST" action="/tgifupload" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+      </form>
+    </div>
+</div>
+
+{% endblock body %}
+
+
+

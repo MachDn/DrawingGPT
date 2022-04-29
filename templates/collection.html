@@ -1,0 +1,19 @@
+<!-- This is a Page which Renders TGIF Event Image from S3, to denoted what is the next event -->
+{% extends 'base.html' %}
+{% block nameofemployee %} Home{% endblock nameofemployee %} 
+{% block body %}
+  <body>
+    <div class="content">
+        <div>
+          <h3>Here are media files inside the S3 bucket:</h3>
+          <ul>
+            {% for item in contents %}
+              <li>
+                <img src={{ item }} style="width: 250px">
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
+  </body>
+  {% endblock body %}
