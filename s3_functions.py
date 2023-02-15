@@ -7,7 +7,7 @@ from botocore.exceptions import ClientError
 # Function to Upload Image to S3
 def upload_file(file_name, bucket):
     object_name = file_name
-    session = boto3.Session(region_name='eu-west-3',
+    session = boto3.Session(region_name='ap-northeast-2',
 		                aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
 		                aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
     s3_client = session.client('s3')
@@ -16,7 +16,7 @@ def upload_file(file_name, bucket):
 
 # Function to generate public URL from S3 to show images on the pages 
 def show_image(bucket):
-    session = boto3.Session(region_name='eu-west-3',
+    session = boto3.Session(region_name='ap-northeast-2',
 		                aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
 		                aws_secret_access_key=os.environ['AWS_ACCESS_KEY_ID'])
     s3_client = session.client('s3')

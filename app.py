@@ -18,7 +18,7 @@ db = SQLAlchemy(app)
 
 # S3 bucket and folder holding image details
 UPLOAD_FOLDER = "uploads"
-BUCKET = "21154589-cpp-project"
+BUCKET = "falimage2s3"
 
 
 #TGIF DB Model

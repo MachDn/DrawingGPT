@@ -1,38 +1,36 @@
 <!-- This is a Page is the HOME page -->
 {% extends 'base.html' %}
-{% block nameofemployee %} Home{% endblock nameofemployee %} 
+{% block nameofemployee %} 당신이만약 애니메이션 주인공이라면 ?{% endblock nameofemployee %} 
 {% block body %}
 
     <div class="container my-3">
       <span style="background-color: #ff0000">
-        <h2>⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
-          TGIF Portal is a place where Employees can look for upcoming TeamBuilding Events in their Team and track the contribution made by them to Fund the Event.
-          The main moto is self-fund the Team Building Activites‼️🤝🤜🤛
-          ⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
+        <h2>
+          당신이만약 애니메이션 주인공이라면 ?
         </h2>
         </span>
         <br>
-        <h2>Enter your Contribution Details Here⤵️</h2>
+        <h2>당신의 정보를 입력하세요</h2>
         <form action="/" method="POST">
             <div class="mb-3">
-              <label for="nameofemployee" class="form-label">Employee Name</label>
+              <label for="nameofemployee" class="form-label">이름</label>
               <input type="text" class="form-control" name="nameofemployee" id="nameofemployee" aria-describedby="emailHelp"> 
             </div>
             <div class="mb-3">
-              <label for="amount" class="form-label">Contribution Amount(in Euros)💶</label>
+              <label for="amount" class="form-label">휴대폰 번호</label>
               <input type="number" class="form-control" name="amount" id="amount">
             </div>
             <div class="mb-3">
-              <label for="desc" class="form-label">PaymentMode|TransactionID</label>
+              <label for="desc" class="form-label">당신이 좋아하는 애니메이션 종류💶</label>
               <input type="text" class="form-control" name="desc" id="desc">
             </div>
             
-            <button type="submit" class="btn btn-dark">Submit</button>
+            <button type="submit" class="btn btn-dark">공유하기</button>
           </form>
     </div>
     <div class="container my-3">
         <p>
-          <mark>You can transfer the amount to AIB Bank IBAN:1234567ABC1234567A</mark>
+          <mark>공유하기 버튼을 누르면 다른 사용자와 함께 공유 할 수 있습니다</mark>
          <h3> </h3>
         </p>
         
@@ -42,16 +40,16 @@
                     Request to contribute 1Euro/head. Add your Contribution Details Above!
                   </div>
                     {% else %} 
-                    <h1>Request to contribute 1Euro/head. Add your Contribution Details!</h1>
+                    <h1>방명록</h1>
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">SNo</th>
-                            <th scope="col">NameOfEmployee</th>
-                            <th scope="col">Amount(in €)</th>
-                            <th scope="col">PaymentMode|TransactionID</th>
-                            <th scope="col">Time</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col">No</th>
+                            <th scope="col">이름</th>
+                            <th scope="col">휴대폰 번호</th>
+                            <th scope="col">좋아하는 애니메이션 종류</th>
+                            <th scope="col">글 작성 시간</th>
+                            <th scope="col">수정</th>
                           </tr>
                         </thead>
                         
