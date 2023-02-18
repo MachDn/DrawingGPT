@@ -2,17 +2,282 @@
 {% extends 'base.html' %}
 {% block nameofemployee %} Home{% endblock nameofemployee %} 
 {% block body %}
-
+<style>
+h1 {text-align: center;}
+h3 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
 <div class="content">
-    <h1>나와 닮은 애니메이션 주인공은 ?? 🎉🎁🤳</h1>
+  <br><br>
+    <h1> 🤳나와 닮은 애니메이션 주인공은?🤳</h1>
     <div>
-      <h3>사진 파일을 업로드 해주세요 바로 변환됩니다.</h3>
+      <h5>사진 파일을 업로드 해주세요 바로 변환됩니다.</h5>
       <form method="POST" action="/tgifupload" enctype="multipart/form-data">
         <input type="file" name="file">
         <input type="submit" value="Upload">
       </form>
     </div>
 </div>
+
+
+    
+<script>
+  function showResult() {
+    var input = document.getElementById("upload");
+    var file = input.files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        var img = document.getElementById("result");
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+    return false;
+  }
+</script>
+<style>
+table {
+  align-items: center;
+  border-collapse: collapse;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+th {
+  background-color: #D6EEEE;
+  align-items: center;
+  text-align: center;
+  padding: 8px;
+}
+
+td {
+  background-color: #ffe5d9;
+  align-items: center;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ffe5d9;
+}
+</style>
+</head>
+<body>
+
+<h3>사진을 찍어 닮은 주인공을 확인 해보세요!</h3>
+
+<!--카메라-->
+      <script>
+      /* JS comes here */
+      (function() {
+  
+          var width = 320; // We will scale the photo width to this
+          var height = 240; // This will be computed based on the input stream
+  
+          var streaming = false;
+  
+          var video = null;
+          var canvas = null;
+          var photo = null;
+          var startbutton = null;
+  
+          function startup() {
+            
+            
+              video = document.getElementById('video');
+              canvas = document.getElementById('canvas');
+              photo = document.getElementById('photo');
+              startbutton = document.getElementById('startbutton');
+  
+              navigator.mediaDevices.getUserMedia({
+                      video: true,
+                      audio: false
+                  })
+                  .then(function(stream) {
+                      video.srcObject = stream;
+                      video.play();
+                  })
+                  .catch(function(err) {
+                      console.log("An error occurred: " + err);
+                  });
+  
+              video.addEventListener('canplay', function(ev) {
+                  if (!streaming) {
+                      height = video.videoHeight / (video.videoWidth / width);
+  
+                      if (isNaN(height)) {
+                          height = width / (4 / 3); 
+                      }
+  
+                      video.setAttribute('width', width);
+                      video.setAttribute('height', height);
+                      canvas.setAttribute('width', width);
+                      canvas.setAttribute('height', height);
+                      streaming = true;
+                  }
+              }, false);
+  
+              startbutton.addEventListener('click', function(ev) {
+                  takepicture();
+                  ev.preventDefault();
+              }, false);
+  
+              clearphoto();
+          }
+  
+  
+          function clearphoto() {
+              var context = canvas.getContext('2d');
+              context.fillStyle = "#AAA";
+              context.fillRect(0, 0, canvas.width, canvas.height);
+  
+              var data = canvas.toDataURL('image/png');
+              photo.setAttribute('src', data);
+          }
+  
+          function takepicture() {
+              var context = canvas.getContext('2d');
+              if (width && height) {
+                  canvas.width = width;
+                  canvas.height = height;
+                  context.drawImage(video, 0, 0, width, height);
+  
+                  var data = canvas.toDataURL('image/png');
+                  console.log(data);
+                  photo.setAttribute('src', data);
+              } else {
+                  clearphoto();
+              }
+          }
+  
+          window.addEventListener('load', startup, false);
+      })();
+      
+      
+  
+    //   photo.addEventListener('load', function() {
+    //     // Get the base64-encoded photo data
+    //     var data = photo.src.split(',')[1];
+    
+    //     // Send the data to the PHP script using Ajax
+    //     var xhr = new XMLHttpRequest();
+    //     xhr.open('POST', 'save-photo.php', true);
+    //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //     xhr.send('data=' + data);
+    // });
+        </script>
+<style>       
+table {
+  width: auto;
+  margin-top: 2rem;
+  background-color: #ffe5d9;
+  border: 1px solid #b38867;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  height: auto;
+  width: auto;
+  text-align: center;
+  padding: 0.5rem;
+  border: 3px solid #b38867;
+}
+
+th {
+  background-color: #b38867;
+  color: black;
+}
+</style> 
+<table align="center">
+  <tr>
+    <th>촬영하기</th>
+    <th>사진</th>
+    <th>Drawing</th>
+  </tr>
+  <tr>
+    <td>
+      <div>
+        <video id="video" align="center">Video stream not available.</video>
+      </div>
+      <div>
+        <button id="startbutton" align="center">촬영하기</button>
+      </div>
+    </td>
+    
+    <td>
+      <div><canvas id="canvas"></canvas></div>
+    </td>
+
+    <td>
+      <img src="https://fal-bucket.s3.ap-northeast-2.amazonaws.com/result_202302160540_39_image.jpg" 
+          width="320"
+          height="240">        
+    </td>
+    
+  </tr>
+</table>
+      <style>
+        /* CSS comes here */
+        #video {
+            border: 1px solid black;
+            width: 320px;
+            height: 240px;
+        }
+    
+        #photo {
+            border: 1px solid black;
+            width: 320px;
+            height: 240px;
+        }
+    
+        #canvas {
+            border: 1px solid black;
+            width: 320px;
+            height: 240px;
+            /*display: none;        */
+        }
+    
+        .camera {
+            width: 320px;
+            display: inline-block;
+        }
+    
+        .output {
+            width: 320px;
+            display: inline-block;
+        }
+
+        .result {
+          width: 320px;
+          display: inline-block;
+      }
+    
+        #startbutton {
+            display: block;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            bottom: 6px;
+            padding: 5px;
+            background-color: #6a67ce;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 1.0);
+            cursor: pointer;
+        }
+    
+        .contentarea {
+            
+            font-size: 16px;
+            font-family: Arial, MalgunGothic;
+            text-align: center;
+        }
+        </style>
+        <br>
 
 {% endblock body %}
 

@@ -1,34 +1,43 @@
 <!-- This is a Page is the HOME page -->
 {% extends 'base.html' %}
-{% block nameofemployee %} 당신이만약 애니메이션 주인공이라면 ?{% endblock nameofemployee %} 
+{% block nameofemployee %} Drawing gpt {% endblock nameofemployee %} 
 {% block body %}
 
+<div class="container my-3">
+  <span style="background-color: #ff0000">
+    <h2><strong>Drawing GPT</strong> 가 그린 당신의 모습은?</h2>
+  </span>
+    <br>
+     
+           <h4>방명록을 작성해보세요~!</h4>
+                <form action="/" method="POST">
+                    <div class="mb-3">
+                      <label for="nameofemployee" class="form-label">닉네임</label>
+                      <input type="text" class="form-control" name="nameofemployee" id="nameofemployee" aria-describedby="emailHelp"> 
+                    </div>
+                    <div class="mb-3">
+                      <label for="amount" class="form-label">나이</label>
+                      <input type="number" class="form-control" name="amount" id="amount">
+                    </div>
+                    <div class="mb-3">
+                      <label for="desc" class="form-label">당신이 좋아하는 애니메이션💶</label>
+                      <input type="text" class="form-control" name="desc" id="desc">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-dark">공유하기</button>
+                  </form>
+            </div> 
+                    <div style="font: bold 2.0em/1.0e">
+                  <li class="nav-item">
+                     <center><a class="nav-link" href="/tgifupload">나와 닮은 주인공 받아보기</a></center>
+                  </li>
+                    <li class="nav-item">
+                      <center><a class="nav-link" href="https://chat.openai.com/chat">chatGPT로 이동하기</a></center>
+                    </li>
+                    </div>
+
     <div class="container my-3">
-      <span style="background-color: #ff0000">
-        <h2>
-          당신이만약 애니메이션 주인공이라면 ?
-        </h2>
-        </span>
-        <br>
-        <h2>당신의 정보를 입력하세요</h2>
-        <form action="/" method="POST">
-            <div class="mb-3">
-              <label for="nameofemployee" class="form-label">이름</label>
-              <input type="text" class="form-control" name="nameofemployee" id="nameofemployee" aria-describedby="emailHelp"> 
-            </div>
-            <div class="mb-3">
-              <label for="amount" class="form-label">휴대폰 번호</label>
-              <input type="number" class="form-control" name="amount" id="amount">
-            </div>
-            <div class="mb-3">
-              <label for="desc" class="form-label">당신이 좋아하는 애니메이션 종류💶</label>
-              <input type="text" class="form-control" name="desc" id="desc">
-            </div>
-            
-            <button type="submit" class="btn btn-dark">공유하기</button>
-          </form>
-    </div>
-    <div class="container my-3">
+      
         <p>
           <mark>공유하기 버튼을 누르면 다른 사용자와 함께 공유 할 수 있습니다</mark>
          <h3> </h3>
@@ -40,14 +49,14 @@
                     Request to contribute 1Euro/head. Add your Contribution Details Above!
                   </div>
                     {% else %} 
-                    <h1>방명록</h1>
+                    <h4>방명록</h4>
                     <table class="table">
                         <thead>
                           <tr>
                             <th scope="col">No</th>
-                            <th scope="col">이름</th>
-                            <th scope="col">휴대폰 번호</th>
-                            <th scope="col">좋아하는 애니메이션 종류</th>
+                            <th scope="col">닉네임</th>
+                            <th scope="col">나이</th>
+                            <th scope="col">좋아하는 애니메이션</th>
                             <th scope="col">글 작성 시간</th>
                             <th scope="col">수정</th>
                           </tr>
@@ -62,8 +71,8 @@
                 <td>{{tgif.desc}}</td>
                 <td>{{tgif.date_created}}</td>
                 <td>
-                  <a href="/update/{{tgif.sno}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Update</button>
-                  <a href="/delete/{{tgif.sno}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</button>
+                  <a href="/update/{{tgif.sno}}" type="button" class="btn btn-outline-dark btn-sm mx-1">수정</button>
+                  <a href="/delete/{{tgif.sno}}" type="button" class="btn btn-outline-dark btn-sm mx-1">삭제</button>
                 
                 </td>
               </tr>

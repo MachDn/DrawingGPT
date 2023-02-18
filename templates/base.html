@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="{{ url_for('static', filename='/imgaes/favicon.ico') }}" type="image/x-icon">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,13 +13,13 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <script src="{{ url_for('static', filename='js/test.js') }}"></script>
-    <title> {% block title %} {% endblock title %}FaceAniLook</title>
+    <title> {% block title %} {% endblock title %}Drawing GPT</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">당신이 만약 애니메이션 주인공이라면?</a>
+            <a class="navbar-brand" href="/">Drawing GPT </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -26,15 +27,24 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    &nbsp;&nbsp;&nbsp;
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">홈</a>
+                        <a class="nav-link active" aria-current="page" href="/">🏠 홈</a>
                     </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <li class="nav-item">
-                        <a class="nav-link" href="/pics">갤러리</a>
+                        <a class="nav-link" href="/pics">🖼갤러리</a>
                     </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <li class="nav-item">
-                        <a class="nav-link" href="/tgifupload">나와 닮은 주인공 받아보기</a>
+                        <a class="nav-link" href="/tgifupload">💌 나의 캐리커쳐 받아보기</a>
                     </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://chat.openai.com/chat">⭐chat GPT로 이동하기</a>
+                    </li>
+                  
+                    
 
                      
                     

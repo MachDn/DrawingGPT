@@ -1,0 +1,24 @@
+<!-- This is a Page which Renders TGIF Event Image from S3, to denoted what is the next event -->
+{% extends 'base.html' %}
+{% block nameofemployee %} Home{% endblock nameofemployee %} 
+{% block body %}
+<head>
+<meta http-equiv="refresh" content="15">  
+</head>>
+  <body>
+    <div class="content">
+        <div>
+          <h3>결과🤳:</h3>
+          <h3>Zoom in to see details of Event's Image:</h3>
+          <!--<ul>-->
+          <!--  {% for item in contents %}-->
+          <!--    <li>-->
+          <!--      <img src= "{{ item}}"style="width: 250px">-->
+          <!--    </li>-->
+          <!--  {% endfor %}-->
+          <!--</ul>-->
+          <img src="{{ contents }}" alt="잠시만 기다려주세요 !">
+        </div>
+    </div>
+  </body>
+  {% endblock body %}

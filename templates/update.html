@@ -4,18 +4,18 @@
 {% block body %}
 
     <div class="container my-3">
-        <h2>Update Tgif</h2>
+        <h2>방명록</h2>
         <form action="/update/{{tgif.sno}}" method="POST">
             <div class="mb-3">
-              <label for="nameofemployee" class="form-label">Employee Name</label>
+              <label for="nameofemployee" class="form-label">닉네임</label>
               <input type="text" class="form-control" name="nameofemployee" id="nameofemployee" value="{{tgif.nameofemployee}}" aria-describedby="emailHelp"> 
             </div>
             <div class="mb-3">
-              <label for="amount" class="form-label">Contribution Amount(in Euros)💶</label>
+              <label for="amount" class="form-label">나이</label>
               <input type="number" class="form-control" value="{{tgif.amount}}" name="amount" id="amount">
             </div>
             <div class="mb-3">
-              <label for="desc" class="form-label">PaymentMode|TransactionID</label>
+              <label for="desc" class="form-label">당신이 좋아하는 애니메이션💶</label>
               <input type="text" class="form-control" value="{{tgif.desc}}" name="desc" id="desc">
             </div>
             
