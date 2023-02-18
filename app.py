@@ -51,7 +51,7 @@ def tgif_home():
 #     return 'this is products page'
 
 # Function for routing the navigation link to TGIF Upload section
-@app.route("/tgifupload")
+@app.route("/tgifupload_home")
 def tgifevents():
     return render_template('tgifupload.html')
 
@@ -65,7 +65,7 @@ def tgifevents():
 #         upload_file(f"uploads/{f.filename}", BUCKET)
 #         return redirect("/tgifupload")
 
-@app.route("/tgifupload", methods=['GET','POST'])
+@app.route("/tgifupload/<int:sno>", methods=['GET','POST'])
 def upload():
     if request.method == "POST":
         print("upload:start")
