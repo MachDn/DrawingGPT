@@ -51,7 +51,7 @@ def tgif_home():
 #     return 'this is products page'
 
 # Function for routing the navigation link to TGIF Upload section
-@app.route("/tgifupload_home")
+@app.route("/tgifupload")
 def tgifevents():
     return render_template('tgifupload.html')
 
@@ -65,7 +65,7 @@ def tgifevents():
 #         upload_file(f"uploads/{f.filename}", BUCKET)
 #         return redirect("/tgifupload")
 
-@app.route("/tgifupload/<int:sno>", methods=['GET','POST'])
+@app.route("/tgifupload", methods=['GET','POST'])
 def upload():
     if request.method == "POST":
         print("upload:start")
@@ -80,14 +80,14 @@ def upload():
         print("upload:filename:{}".format(new_filename))
         f.save(os.path.join(UPLOAD_FOLDER, new_filename))
         #upload_file(f"{new_filename}", BUCKET2)
-        return redirect("/result")
+        return redirect("/pics")
         #return render_template('gallery.html')
 
 # Function for Rendering Images from S3 bucket to TGIFEvents Page i.e. result.html
-@app.route("/result")
+@app.route("/pics")
 def list():
     contents = show_image(BUCKET2, new_filename)
-    return render_template('result.html',  contents=contents)
+    return render_template('collection.html',  contents=contents)
 
 # Function for updating data to database and rendering data on html page
 @app.route('/update/<int:sno>', methods=['GET', 'POST'])
